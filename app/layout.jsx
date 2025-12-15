@@ -2,7 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import ChatbotLoader from "@/components/ChatbotLoader"
 import AnnouncementBanner from "@/components/AnnouncementBanner"
+import ContactModal from "@/components/ContactModal";
 import "./globals.css"
 
 const geist = Geist({ subsets: ["latin"] })
@@ -40,7 +42,12 @@ export default function RootLayout({ children }) {
         <AnnouncementBanner />
         <Navbar />
         <main>{children}</main>
+         <ContactModal openOnMount={true} />
         <Footer />
+
+
+     <ChatbotLoader />
+
         <Analytics />
       </body>
     </html>

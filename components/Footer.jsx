@@ -17,32 +17,16 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-b from-slate-950 to-black text-white text-[15px] leading-relaxed">
+      
 
-      {/* 🔹 Disclaimer Section */}
-      <div className="border-b border-slate-800 bg-emerald-500/10 backdrop-blur-md px-6 py-6">
-        <div className="max-w-7xl mx-auto flex flex-col gap-3 text-center md:text-left">
-          <div className="flex justify-center md:justify-start items-center gap-2">
-            <AlertCircle className="text-emerald-400" size={22} />
-            <span className="text-[15px] font-semibold text-emerald-300 tracking-wide">
-              Important Disclaimer
-            </span>
-          </div>
+      
 
-          <p className="text-[14px] text-slate-300 leading-relaxed max-w-4xl mx-auto md:mx-0">
-            Growthera Ventures is an independent consulting organization and
-            does not represent any government entity. Funding programs,
-            subsidies, and approvals are subject to documentation, eligibility,
-            and third-party authority approvals. Information may change based on
-            regulatory updates. Clients are encouraged to verify key information
-            through official government channels.
-          </p>
-        </div>
-      </div>
 
       {/* 🔹 Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-5 gap-12 mb-16">
-
+      {/* ### CHANGE ###: Increased vertical padding (py-24 instead of py-20) and added horizontal padding on large screens (lg:px-12) */}
+      <div className="max-w-7xl mx-auto px-6 py-24 lg:px-12">
+        {/* ### CHANGE ###: Reduced gap between columns (gap-y-12 gap-x-8 instead of just default grid gap) */}
+        <div className="grid md:grid-cols-5 gap-y-12 gap-x-8 mb-16">
           {/* Logo + About */}
           <div className="md:col-span-2">
             <div className="mb-5">
@@ -57,20 +41,23 @@ export default function Footer() {
             </div>
 
             <p className="text-slate-300 text-[16px] mb-5 font-medium">
-              Strategic business advisory for founders, startups & enterprises.
+              Strategic business advisory for founders,
+              <br />
+              startups & enterprises.
             </p>
             <p className="text-slate-400 text-[14px]">
-              We assist with funding readiness, compliance, registrations,
-              execution roadmaps, and growth enablement.
+              We assist with funding readiness, compliance,
+              <br />
+              registrations, execution roadmaps, and growth enablement.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[13px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
+            <h4 className="text-[15px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
               Quick Links
             </h4>
-            <ul className="space-y-3 text-[15px]">
+            <ul className="space-y-3 text-[13px]">
               {[
                 { name: "Home", href: "/" },
                 { name: "Services", href: "/services" },
@@ -81,7 +68,7 @@ export default function Footer() {
                 <li key={`${link.name}-${link.href}`}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors font-medium"
+                    className="text-slate-400 hover:text-[#e5a4aa] transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
@@ -90,12 +77,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Legal */}
           <div>
-            <h4 className="text-[13px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
+            <h4 className="text-[15px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
               Legal
             </h4>
-            <ul className="space-y-3 text-[15px]">
+            <ul className="space-y-3 text-[13px]">
               {[
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Term of Service", href: "/terms" },
@@ -104,7 +91,7 @@ export default function Footer() {
                 <li key={`${link.name}-${link.href}`}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-emerald-400 transition-colors font-medium"
+                    className="text-slate-400 hover:text-[#e5a4aa] transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
@@ -114,44 +101,60 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-[13px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
+
+              <div>
+            <h4 className="text-[15px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
               Contact
             </h4>
-            <div className="space-y-4">
+
+            <div className="space-y-4 text-[13px]">
+              
               <a
                 href="tel:+919810924009"
-                className="flex items-center gap-3 text-slate-300 hover:text-emerald-400 transition-colors font-semibold"
+                className="flex items-center gap-2 text-slate-300 hover:text-[#e5a4aa] transition-colors font-semibold"
               >
-                <Phone size={20} /> +91 98109 24009
+                <Phone size={16} /> +91 98109 24009
               </a>
 
-              {/* <a
+              <a
                 href="mailto:support@growtheraventures.com"
-                className="flex items-center gap-3 text-slate-300 hover:text-emerald-400 transition-colors font-semibold"
+                className="flex items-center gap-2 text-slate-300 hover:text-[#e5a4aa] transition-colors font-semibold"
               >
-                <Mail size={20} /> support@growtheraventures.com
-              </a> */}
-
-
-                <a
-  href="mailto:support@growtheraventures.com"
-  className="flex items-center gap-3 text-slate-300 hover:text-emerald-400 transition-colors font-semibold"
->
-  <Mail
-    size={24}
-    className="shrink-0 white bg-black rounded-full p-[2px]"
-  />
-  <span>support@growtheraventures.com</span>
-</a>
+                <Mail size={16} className="shrink-0" />
+                support@growtheraventures.com
+              </a>
 
               <div className="flex items-start gap-3 text-slate-300">
-                <MapPin size={50} />
-                <span>H-28 ARV Park, G-03, Sector 63, Noida, UP — 201301</span>
+                <MapPin size={30} />
+                <span className="text-[13px] leading-5">
+                  H-28 ARV Park, G-03, Sector 63, Noida, UP — 201301
+                </span>
               </div>
             </div>
           </div>
+
         </div>
+          {/* Disclaimer Card */}
+<div className="w-full flex justify-center mt-16 px-4">  {/* Increased top margin */}
+  <div className="bg-slate-800/40 border border-slate-700 rounded-xl 
+                  p-6 md:p-8 max-w-4xl shadow-lg w-full">  {/* Increased width */}
+
+    <h3 className="text-center text-[#B36267] font-semibold text-lg mb-3 tracking-wide">
+      Important Disclaimer
+    </h3>
+
+    <p className="text-slate-300 text-justify leading-7 text-sm md:text-[13px]">
+      Growthera Ventures operates as an independent consulting firm and is 
+      not directly affiliated with any government body, official department, 
+      or regulatory authority. All services provided are strictly based on 
+      consultancy, documentation support, application guidance, and business 
+      advisory. Government fees, processing charges, or statutory costs (if 
+      applicable) are separate and are paid directly to the respective 
+      authorities by the client.
+    </p>
+
+  </div>
+</div>
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -162,9 +165,18 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex gap-4">
             {[
-              { icon: Linkedin, url: "https://www.linkedin.com/company/growthera-ventures-pvt-ltd/?viewAsMember=true" },
-              { icon: Instagram, url: "https://www.instagram.com/growthera_ventures/" },
-              { icon: Facebook, url: "https://www.facebook.com/profile.php?id=61584163224418" },
+              {
+                icon: Linkedin,
+                url: "https://www.linkedin.com/company/growthera-ventures-pvt-ltd/?viewAsMember=true",
+              },
+              {
+                icon: Instagram,
+                url: "https://www.instagram.com/growthera_ventures/",
+              },
+              {
+                icon: Facebook,
+                url: "https://www.facebook.com/profile.php?id=61584163224418",
+              },
               { icon: Twitter, url: "https://twitter.com/your-profile" },
             ].map(({ icon: Icon, url }, i) => (
               <a
@@ -172,7 +184,7 @@ export default function Footer() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full border border-slate-700 bg-slate-900/40 hover:bg-emerald-500 hover:border-emerald-500 transition-all hover:scale-110"
+                className="p-2 rounded-full border border-slate-700 bg-slate-900/40 hover:bg-[#df5964] hover:border-emerald-500 transition-all hover:scale-110"
               >
                 <Icon size={20} />
               </a>

@@ -77,7 +77,7 @@ export default function SectorsPage() {
         </div>
       </section> */}
 
-      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-950 via-sky-900 to-orange-600 text-white">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#191b47] via-[#2d2f5a] to-[#8e2822] text-white">
 
   {/* Background Effects */}
   <div className="absolute inset-0 -z-10">
@@ -86,7 +86,7 @@ export default function SectorsPage() {
     <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(249,115,22,0.5),_transparent_60%)]"></div>
 
     {/* Glow blobs */}
-    <div className="absolute -top-20 left-6 w-64 h-64 bg-orange-400/60 rounded-full blur-3xl"></div>
+    <div className="absolute -top-20 left-6 w-64 h-64 bg-[#b36267] rounded-full blur-3xl"></div>
     <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400/45 rounded-full blur-3xl"></div>
 
     {/* Subtle texture overlay */}
@@ -113,7 +113,7 @@ export default function SectorsPage() {
               <Link
                 key={i}
                 href="/services"
-                className="group rounded-xl overflow-hidden border border-slate-200 hover:border-orange-500 bg-white hover:shadow-lg transition-all transform hover:scale-105 animate-in fade-in"
+                className="group rounded-xl overflow-hidden border border-slate-200 hover:border-[#8e1822] bg-white hover:shadow-lg transition-all transform hover:scale-105 animate-in fade-in"
                 style={{ animationDelay: `${i * 75}ms` }}
               >
                 <div className="relative h-40 overflow-hidden bg-slate-300">
@@ -124,11 +124,11 @@ export default function SectorsPage() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                  <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-[#8e1822] transition-colors">
                     {sector.title}
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">{sector.opportunities}</p>
-                  <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm">
+                  <div className="flex items-center gap-2 text-[#8e1822] font-semibold text-sm">
                     <span>Explore</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -141,7 +141,7 @@ export default function SectorsPage() {
           <div className="mt-12 text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg transition-all transform hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#963339] to-[#8e1822] text-white font-bold rounded-lg hover:shadow-lg transition-all transform hover:scale-105"
             >
               <Zap size={20} className="mr-2" />
               Apply for Sector-Specific Funding

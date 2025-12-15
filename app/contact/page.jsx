@@ -76,7 +76,7 @@ export default function ContactPage() {
         </div>
       </section> */}
 
-      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-950 via-sky-900 to-orange-600 text-white">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#191b47] via-[#2d2f5a] to-[#8e1822] text-white">
 
   {/* Background Effects */}
   <div className="absolute inset-0 -z-10">
@@ -85,7 +85,7 @@ export default function ContactPage() {
     <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(249,115,22,0.5),_transparent_60%)]"></div>
 
     {/* Glow blobs */}
-    <div className="absolute -top-20 left-10 w-64 h-64 bg-orange-400/60 rounded-full blur-3xl"></div>
+    <div className="absolute -top-20 left-10 w-64 h-64 bg-[#b36267] rounded-full blur-3xl"></div>
     <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400/45 rounded-full blur-3xl"></div>
 
     {/* Pattern overlay */}
@@ -110,10 +110,10 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <a
               href="tel:+919810924009"
-              className="p-8 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-600 hover:shadow-lg transition-all"
+              className="p-8 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-[#8e1822] hover:shadow-lg transition-all"
             >
-              <Phone className="w-8 h-8 text-orange-600 mb-4" />
-              <h3 className="font-bold text-lg text-slate-900 mb-2">Phone</h3>
+              <Phone className="w-8 h-8 text-[#8e1822] mb-4" />
+              <h3 className="font-bold text-lg text-[#191b47] mb-2">Phone</h3>
               <p className="text-slate-700">+91 9810924009</p>
               <p className="text-sm text-slate-600 mt-2">Mon–Sat • 10 AM – 6 PM IST</p>
             </a>
@@ -122,15 +122,15 @@ export default function ContactPage() {
               href="mailto:support@growtheraventures.in"
               className="p-8 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-600 hover:shadow-lg transition-all"
             >
-              <Mail className="w-8 h-8 text-blue-600 mb-4" />
-              <h3 className="font-bold text-lg text-slate-900 mb-2">Email</h3>
+              <Mail className="w-8 h-8 text-[#191b47] mb-4" />
+              <h3 className="font-bold text-lg text-[#191b47] mb-2">Email</h3>
               <p className="text-slate-700">support@growtheraventures.com</p>
               <p className="text-sm text-slate-600 mt-2">We'll respond within 24 hours</p>
             </a>
 
             <div className="p-8 rounded-xl bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-600">
               <MapPin className="w-8 h-8 text-green-600 mb-4" />
-              <h3 className="font-bold text-lg text-slate-900 mb-2">Office</h3>
+              <h3 className="font-bold text-lg text-[#191b47] mb-2">Office</h3>
               <p className="text-slate-700 text-sm">H-28 ARV Park G-03, Sector 63, Noida 201301</p>
             </div>
           </div>
@@ -138,43 +138,43 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="grid md:grid-cols-2 gap-12">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <h2 className="text-3xl font-bold text-slate-900 mb-8">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-[#191b47] mb-8">Send us a Message</h2>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
+                <label className="block text-sm font-semibold text-[#191b47] mb-2">Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                  placeholder="Your name"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#8e1822] focus:ring-2 focus:ring-[#b36267] transition-all"
+                  placeholder="Name"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                <label className="block text-sm font-semibold text-[#191b47] mb-2">Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#8e1822] focus:ring-2 focus:ring-[#b36267] transition-all"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Phone</label>
+                <label className="block text-sm font-semibold text-[#191b27] mb-2">Phone</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#8e1822] focus:ring-2 focus:ring-[#b36267] transition-all"
                   placeholder="+91 9810924009"
                 />
               </div>
@@ -183,34 +183,41 @@ export default function ContactPage() {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Service Interested In</label>
                 <select
                   name="service"
+                  placeholder="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#8e1822] focus:ring-2 focus:ring-[#b36267] transition-all"
                 >
-                  <option value="">Select a service</option>
-                  <option value="startup">Startup Certification</option>
-                  <option value="funding">Funding & Finance</option>
-                  <option value="compliance">Compliance</option>
-                  <option value="digital">Digital Growth</option>
+                  <option value="">Select Service</option>
+                  <option value="New Company Registration">New Company Registration</option>
+                  <option value="Certification">Certification</option>
+                  {/* <option value="Tax Exemption">Tax Exemption</option> */}
+                  <option value="CGTMSE Loan">CGTMSE Loan</option>
+                  <option value="Seed Support Scheme">Seed Support Scheme</option>
+                  <option value="PMEGP">PMEGP</option>
+                  <option value="MSME">MSME</option>
+                  <option value="PMFME">PMFME</option>
+                  <option value="Other">Other</option>
+                  
                 </select>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                <label className="block text-sm font-semibold text-[#191b47] mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-[#8e1822] focus:ring-2 focus:ring-[#b36267] transition-all"
                   placeholder="Tell us about your business..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2 transform hover:scale-105"
+                className="w-full px-6 py-3 bg-gradient-to-r from-[#8e1822] to-[#8e1822] text-white font-bold rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2 transform hover:scale-105"
               >
                 <Send size={20} />
                 Send Message
@@ -222,6 +229,7 @@ export default function ContactPage() {
                 </div>
               )}
             </form>
+
 
             {/* Image */}
             <div className="hidden md:block">

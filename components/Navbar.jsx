@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 ">
       <div
         className={`transition-all duration-300 ${
           isScrolled ? "px-3 pt-3 pb-2" : ""
@@ -34,7 +34,7 @@ export default function Navbar() {
           className={`flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8 transition-all duration-300 
           ${
             isScrolled
-              ? "mx-auto max-w-7xl rounded-2xl border bg-white/90 shadow-lg border-slate-200"
+              ? "mx-auto max-w-7xl rounded-2xl border bg-white shadow-lg border-slate-200"
               : "w-full bg-white shadow-md border-b border-slate-200"
           }`}
         >
@@ -78,7 +78,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-slate-700 hover:text-orange-600 transition-colors duration-300"
+                className="text-sm font-medium text-slate-700 hover:text-[#8e1822] transition-colors duration-300"
               >
                 {item.label}
               </Link>
@@ -96,7 +96,7 @@ export default function Navbar() {
             </a>
             <Link
               href="/contact"
-              className="px-6 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="px-6 py-2 rounded-lg bg-gradient-to-r from-[#B52A34] to-[#8e1822] text-white font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Get Free Consultation
             </Link>

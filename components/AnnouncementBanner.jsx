@@ -19,8 +19,11 @@ export default function AnnouncementBanner() {
   if (!show) return null
 
   return (
-    <div className="relative overflow-hidden text-sm border-b border-orange-400 shadow-lg 
-      bg-gradient-to-r from-slate-950 via-sky-900 to-orange-600 text-white">
+    // <div className="relative overflow-hidden text-sm border-b border-orange-400 shadow-lg 
+    //   bg-gradient-to-r from-slate-950 via-sky-900 to-orange-600 text-white">
+
+    <div className="relative overflow-hidden text-sm border-b border-[#b52a34] shadow-lg 
+      bg-gradient-to-r from-[#191b47] via-[#2d2f5a] to-[#8e1822] text-white">
 
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">

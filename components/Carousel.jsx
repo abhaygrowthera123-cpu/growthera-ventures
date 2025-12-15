@@ -56,14 +56,14 @@ export default function Carousel({ items }) {
       {/* Navigation Buttons */}
       <button
         onClick={prev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-orange-600 hover:bg-orange-700 p-3 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg ml-2 sm:ml-0"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#8e1822] hover:bg-[#8e1822] p-3 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg ml-2 sm:ml-0"
         title="Previous funding schemes"
       >
         <ChevronLeft size={28} className="text-white" />
       </button>
       <button
         onClick={next}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-orange-600 hover:bg-orange-700 p-3 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg mr-2 sm:mr-0"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#8e1822] hover:bg-[#8e1822] p-3 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg mr-2 sm:mr-0"
         title="Next funding schemes"
       >
         <ChevronRight size={28} className="text-white" />
@@ -79,7 +79,7 @@ export default function Carousel({ items }) {
               setIsAutoplay(false)
             }}
             className={`transition-all duration-300 rounded-full ${
-              i === current ? "bg-orange-600 w-8 h-3 shadow-lg" : "bg-slate-300 hover:bg-slate-400 w-3 h-3"
+              i === current ? "bg-[#8e1822] w-8 h-3 shadow-lg" : "bg-slate-300 hover:bg-slate-400 w-3 h-3"
             }`}
             title={`Go to scheme group ${i + 1}`}
           />

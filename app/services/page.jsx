@@ -9,7 +9,7 @@ const serviceCategories = [
   {
     id: "funding",
     name: "Funding & Finance",
-    icon: "💰",
+    // icon: "💰",
     description: "Access structured funding and financial solutions",
     services: [
       {
@@ -49,7 +49,7 @@ const serviceCategories = [
   {
     id: "registration",
     name: "Business Registration",
-    icon: "📋",
+    // icon: "📋",
     description: "Complete registration and compliance solutions",
     services: [
       {
@@ -89,7 +89,7 @@ const serviceCategories = [
   {
     id: "certifications",
     name: "Certifications & IP",
-    icon: "✅",
+    // icon: "✅",
     description: "Build credibility and protect intellectual property",
     services: [
       {
@@ -129,7 +129,7 @@ const serviceCategories = [
   {
     id: "compliance",
     name: "Tax & Compliance",
-    icon: "📊",
+    // icon: "📊",
     description: "Simplify tax filing and regulatory compliance",
     services: [
       {
@@ -169,7 +169,7 @@ const serviceCategories = [
   {
     id: "digital",
     name: "Digital Growth",
-    icon: "🚀",
+    // icon: "🚀",
     description: "Digital marketing and online presence solutions",
     services: [
       {
@@ -209,7 +209,7 @@ const serviceCategories = [
   {
     id: "funding-schemes",
     name: "Government Funding Schemes",
-    icon: "💵",
+    // icon: "💵",
     description: "50+ government-backed schemes worth ₹1000+ Crores",
     services: [
       {
@@ -312,7 +312,7 @@ const ServicesPage = () => {
         </div>
       </section> */}
 
-      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-950 via-sky-900 to-orange-600 text-white">
+      <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#2d2f5a] via-[#191b47] to-[#8e1822] text-white">
   <div className="absolute inset-0 -z-10">
 
     <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(249,115,22,0.5),_transparent_60%)]"></div>
@@ -327,7 +327,7 @@ const ServicesPage = () => {
     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
       Comprehensive Business Solutions
     </h1>
-    <p className="text-xl text-orange-50 max-w-2xl mx-auto">
+    <p className="text-xl text-[#ffff] max-w-2xl mx-auto">
       6 Categories. 50+ Schemes. 20+ Services. Tailored for every growth stage.
     </p>
   </div>
@@ -336,7 +336,7 @@ const ServicesPage = () => {
 
       {/* Category Tabs */}
       <section className="py-8 sm:py-12 bg-slate-50 sticky top-20 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
             {serviceCategories.map((category) => (
               <button
@@ -347,10 +347,10 @@ const ServicesPage = () => {
                     setFilteredSchemes(category.services)
                   }
                 }}
-                className={`px-4 sm:px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                className={`px-2 sm:px-2 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 active:scale-80 ${
                   active === category.id
-                    ? "bg-orange-600 text-white shadow-lg animate-bounce"
-                    : "bg-white text-slate-900 border border-slate-200 hover:border-orange-500 hover:shadow-md"
+                    ? "bg-[#8e1822] text-white shadow-lg animate-bounce"
+                    : "bg-white text-slate-900 border border-slate-200 hover:border-[#8e1822] hover:shadow-md"
                 }`}
                 title={`View ${category.name}`}
               >
@@ -379,7 +379,7 @@ const ServicesPage = () => {
                 value={searchScheme}
                 onChange={handleSchemeSearch}
                 placeholder="Search schemes by name or features..."
-                className="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                className="w-full pl-12 pr-4 py-3 rounded-lg border border-slate-300 focus:border-[#8e1822] focus:ring-2 focus:ring-[#B36267] transition-all"
               />
             </div>
           </div>
@@ -475,7 +475,7 @@ const ServicesPage = () => {
   </div>
 </section> */}
 
- <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#0D1F2D] via-[#123C52] to-[#276F85] text-white">
+ <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#191b47] via-[#2d2f5a] to-[#276F85] text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 animate-slide-in-from-left-lg">
             Need Multiple Services?
@@ -485,7 +485,7 @@ const ServicesPage = () => {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-400 transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+            className="inline-flex items-center px-8 py-4 bg-[#8e1822] text-white font-bold rounded-lg hover:bg-[#8e1800] transition-all transform hover:scale-105 active:scale-95 shadow-lg"
             title="Get a free consultation for a custom service package"
           >
             Get Free Consultation

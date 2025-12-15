@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, TrendingUp, Users, CheckCircle, Zap } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import Carousel from "@/components/Carousel";
+import Counter from "@/components/Counter";
+
 import { HeroSection } from "@/components/home/hero-section";
 
 import AnnouncementBanner from "@/components/AnnouncementBanner";
@@ -42,26 +44,26 @@ const services = [
 ];
 
 const fundingSchemes = [
-  { name: "Startup India", amount: "₹10 Cr", color: "bg-[#162938]" },
-  { name: "MUDRA Loan", amount: "₹10 Lakh", color: "bg-[#002B5B]" },
-  { name: "PMEGP", amount: "₹25 Lakh", color: "from-green-500 to-green-600" },
-  { name: "Stand-up India", amount: "₹1 Cr", color: "bg-[#162938]" },
+  { name: "Startup India", amount: "₹10 Cr", color: "bg-[#2F5755]" },
+  { name: "MUDRA Loan", amount: "₹10 Lakh", color: "bg-[#A18D6D]" },
+  { name: "PMEGP", amount: "₹25 Lakh", color: "bg-[#234C6A]" },
+  { name: "Stand-up India", amount: "₹1 Cr", color: "bg-[#5F0F40]" },
   { name: "Digital MSME", amount: "₹15 Lakh", color: "bg-[#002B5B]" },
-  { name: "National SC-ST Hub", amount: "₹1 Cr", color: "bg-[#1E293B]" },
+  { name: "National SC-ST Hub", amount: "₹1 Cr", color: "bg-[#0F828C]" },
   {
     name: "Innovation Grant",
     amount: "₹5 Cr",
-    color: "from-indigo-500 to-indigo-600",
+    color: "bg-[#2F5755]",
   },
-  { name: "Manufacturing", amount: "₹1 Cr", color: "bg-[#D4AF37]" },
-  { name: "Rural Development", amount: "₹25 Lakh", color: "bg-[#0D0D0D]" },
-  { name: "Business Expansion", amount: "₹3 Cr", color: "bg-[#002B5B]" },
+  { name: "Manufacturing", amount: "₹1 Cr", color: "bg-[#53629E]" },
+  { name: "Rural Development", amount: "₹25 Lakh", color: "bg-[#1581BF]" },
+  { name: "Business Expansion", amount: "₹3 Cr", color: "bg-[#5A9CB5]" },
 ];
 
 const stats = [
   { label: "Years of Excellence", value: "5+", icon: TrendingUp },
   { label: "Happy Clients", value: "500+", icon: Users },
-  { label: "Success Rate", value: "99%", icon: CheckCircle },
+  { label: "Success Rate", value: "95%", icon: CheckCircle },
   { label: "Projects Delivered", value: "1000+", icon: Zap },
 ];
 
@@ -138,7 +140,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Key Stats */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
+      {/* <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, i) => {
@@ -146,11 +148,11 @@ export default function Home() {
               return (
                 <div
                   key={i}
-                  className="p-6 bg-white rounded-xl border border-slate-200 text-center hover:border-orange-500 transition-all duration-300 hover:shadow-lg animate-in fade-in slide-in-from-bottom-4"
+                  className="p-6 bg-white rounded-xl border border-slate-200 text-center hover:border-[#8e1822] transition-all duration-300 hover:shadow-lg animate-in fade-in slide-in-from-bottom-4"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <Icon
-                    className="w-8 h-8 text-orange-600 mx-auto mb-3 animate-rotate-slow"
+                    className="w-8 h-8 text-[#8e1822] mx-auto mb-3 animate-rotate-slow"
                     style={{ animationDuration: "6s" }}
                   />
                   <p className="text-2xl sm:text-3xl font-bold text-slate-900">
@@ -164,7 +166,40 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      {stats.map((stat, i) => {
+        const Icon = stat.icon;
+        return (
+          <div
+            key={i}
+            className="p-6 bg-white rounded-xl border border-slate-200 text-center hover:border-[#8e1822] transition-all duration-300 hover:shadow-lg animate-in fade-in slide-in-from-bottom-4"
+            style={{ animationDelay: `${i * 100}ms` }}
+          >
+            <Icon
+              className="w-8 h-8 text-[#8e1822] mx-auto mb-3 animate-rotate-slow"
+              style={{ animationDuration: "6s" }}
+            />
+
+            {/* Elementor-style animated counter */}
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900">
+              <Counter end={stat.value} duration={2000} />
+            </p>
+
+            <p className="text-xs sm:text-sm text-slate-600 mt-2">
+              {stat.label}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
 
       {/* Growth Metrics */}
       <section className="py-12 sm:py-16 lg:py-20">
@@ -178,27 +213,27 @@ export default function Home() {
               {
                 title: "Structured Funding Access",
                 desc: "50+ Schemes Worth ₹1000+ Cr",
-                icon: "💰",
+                // icon: "💰",
               },
               {
                 title: "Expert Guidance & Compliance",
                 desc: "100% Compliance Guaranteed",
-                icon: "✅",
+                // icon: "✅",
               },
               {
                 title: "Growth Acceleration Programs",
                 desc: "7-15 Days Turnaround Time",
-                icon: "🚀",
+                // icon: "🚀",
               },
               {
                 title: "Market Expansion Support",
                 desc: "500+ Satisfied Clients",
-                icon: "🌍",
+                // icon: "🌍",
               },
             ].map((item, i) => (
               <div
                 key={i}
-                className="p-6 sm:p-8 rounded-xl border border-slate-200 hover:border-orange-500 bg-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-slide-in-from-left-lg"
+                className="p-6 sm:p-8 rounded-xl border border-slate-200 hover:border-[#8e1822] bg-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-slide-in-from-left-lg"
                 style={{ animationDelay: `${i * 150}ms` }}
               >
                 <div className="text-4xl mb-3 animate-tilt-rotate">
@@ -227,6 +262,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            
             {services.map((service, i) => (
               <div
                 key={service.id}
@@ -241,7 +277,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/services"
-              className="inline-flex items-center px-6 sm:px-8 py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all duration-300 transform hover:scale-105 active:scale-95 animate-bounce"
+              className="inline-flex items-center px-6 sm:px-8 py-3 bg-[#8e1822] text-white font-bold rounded-lg hover:bg-orange-700 transition-all duration-300 transform hover:scale-105 active:scale-95 animate-bounce"
               title="Explore all 20+ services we offer"
             >
               View All Services
@@ -284,7 +320,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/services"
-              className="inline-flex items-center px-8 py-4 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all transform hover:scale-105 active:scale-95 animate-bounce"
+              className="inline-flex items-center px-8 py-4 bg-[#8e1822] text-white font-bold rounded-lg hover:bg-[#963339] transition-all transform hover:scale-105 active:scale-95 animate-bounce"
               title="Explore all 50+ government-backed funding schemes"
             >
               Explore All 50+ Schemes
@@ -305,7 +341,7 @@ export default function Home() {
             {successStories.map((story, i) => (
               <div
                 key={i}
-                className="group rounded-xl overflow-hidden border border-slate-200 hover:border-orange-500 hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-in fade-in"
+                className="group rounded-xl overflow-hidden border border-slate-200 hover:border-[#B52A34] hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-in fade-in"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="relative h-48 overflow-hidden bg-slate-300">
@@ -347,7 +383,7 @@ export default function Home() {
         </div>
       </section> */}
 
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#2d2f5a] via-[#191b47] to-[#415A77] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
             Ready to Transform Your Business?
