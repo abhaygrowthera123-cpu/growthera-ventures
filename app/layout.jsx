@@ -44,10 +44,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
          <ContactModal openOnMount={true} />
         <Footer />
-
-
-     <ChatbotLoader />
-
+        <ChatbotLoader />
         <Analytics />
       </body>
     </html>

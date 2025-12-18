@@ -139,11 +139,11 @@ export default function Footer() {
   <div className="bg-slate-800/40 border border-slate-700 rounded-xl 
                   p-6 md:p-8 max-w-4xl shadow-lg w-full">  {/* Increased width */}
 
-    <h3 className="text-center text-[#B36267] font-semibold text-lg mb-3 tracking-wide">
+    <h3 className="text-center text-[#daabae] font-semibold text-lg mb-3 tracking-wide">
       Important Disclaimer
     </h3>
 
-    <p className="text-slate-300 text-justify leading-7 text-sm md:text-[13px]">
+    <p className="text-[#c9d2d2] text-justify leading-7 text-sm md:text-[13px]">
       Growthera Ventures operates as an independent consulting firm and is 
       not directly affiliated with any government body, official department, 
       or regulatory authority. All services provided are strictly based on 

@@ -3,6 +3,7 @@ import { ArrowRight, TrendingUp, Users, CheckCircle, Zap } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import Carousel from "@/components/Carousel";
 import Counter from "@/components/Counter";
+import SuccessStories from "@/components/SuccessStories";
 
 import { HeroSection } from "@/components/home/hero-section";
 
@@ -17,22 +18,22 @@ const services = [
     story: "SaaS StartUp secured $2M seed funding after certification",
     slug: "startup-certification",
   },
-  {
-    id: 2,
-    title: "Pitch Deck Creation",
-    description: "Investor-ready pitch materials and presentation",
-    image: "/pitch-deck-presentation.jpg",
-    story: "Tech company impressed 50+ investors with our deck design",
-    slug: "pitch-deck",
-  },
-  {
-    id: 3,
-    title: "MSME Registration",
-    description: "Unlock subsidies and government schemes",
-    image: "/business-registration.png",
-    story: "E-Commerce MSME achieved 300% growth post-registration",
-    slug: "msme-registration",
-  },
+  // {
+  //   id: 2,
+  //   title: "Pitch Deck Creation",
+  //   description: "Investor-ready pitch materials and presentation",
+  //   image: "/pitch-deck-presentation.jpg",
+  //   story: "Tech company impressed 50+ investors with our deck design",
+  //   slug: "pitch-deck",
+  // },
+  // {
+  //   id: 3,
+  //   title: "MSME Registration",
+  //   description: "Unlock subsidies and government schemes",
+  //   image: "/business-registration.png",
+  //   story: "E-Commerce MSME achieved 300% growth post-registration",
+  //   slug: "msme-registration",
+  // },
   {
     id: 4,
     title: "ISO Certification",
@@ -261,7 +262,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-8">
             
             {services.map((service, i) => (
               <div
@@ -331,7 +332,11 @@ export default function Home() {
       </section>
 
       {/* Success Stories Carousel */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
+
+      <SuccessStories/>
+
+
+      {/* <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-slate-900 mb-12 text-balance">
             Success Stories
@@ -361,7 +366,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       {/* <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">

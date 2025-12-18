@@ -1,328 +1,318 @@
-import Link from "next/link"
-import { ArrowLeft, CheckCircle, ArrowRight } from "lucide-react"
+// import { serviceCategories } from "@/app/data/serviceData"
+// import { notFound } from "next/navigation"
 
-const serviceData = {
-  "startup-certification": {
-    title: "Startup India Certificate",
-    description: "Get government recognition and unlock funding opportunities",
-    image: "/startup-certification-document.jpg",
-    story: "SaaS Startup secured $2M seed funding after Startup India certification in just 45 days",
-    benefits: [
-      "Government Recognition",
-      "Tax Exemption for 5 Years",
-      "Priority Loan Support",
-      "Funding Access - Up to ₹10 Crore",
-      "Fast-Track Patent Filing",
-      "Business Incubation Benefits",
-    ],
-    process: ["Fill Application Form", "Submit Documents", "Government Review", "Certificate Issued"],
-    timeline: "15-30 Days",
-    eligibility: "Startups with < ₹25 Cr revenue, < 5 years old, innovation-driven",
-  },
-  "pitch-deck": {
-    title: "Pitch Deck Creation",
-    description: "Professional investor-ready pitch presentations",
-    image: "/pitch-deck-presentation-slides.jpg",
-    story: "Tech Company impressed 50+ investors and secured Series A with our pitch deck design",
-    benefits: [
-      "Professional Design",
-      "Investor Psychology Insights",
-      "Data Visualization",
-      "Market Analysis Charts",
-      "Financial Projections",
-      "Unlimited Revisions",
-    ],
-    process: ["Discovery Call", "Content Creation", "Design & Mockup", "Final Delivery"],
-    timeline: "10-14 Days",
-    eligibility: "Startups, scale-ups, or companies seeking funding",
-  },
-  "msme-registration": {
-    title: "MSME Registration",
-    description: "Unlock government schemes and subsidies",
-    image: "/msme-business-registration.jpg",
-    story: "E-Commerce MSME achieved 300% growth in 12 months after registration and subsidy access",
-    benefits: [
-      "Subsidy & Grant Access",
-      "Collateral-Free Loans",
-      "Tax Benefits",
-      "Export Promotion",
-      "Credit Line Enhancement",
-      "Government Tender Participation",
-    ],
-    process: ["Business Assessment", "Document Collection", "Portal Registration", "Approval"],
-    timeline: "7-10 Days",
-    eligibility: "Investment < ₹10 Cr (Manufacturing) or < ₹5 Cr (Services)",
-  },
-  "iso-certification": {
-    title: "ISO Certification",
-    description: "Boost credibility and expand global reach",
-    image: "/iso-certification-quality-standard.jpg",
-    story: "Manufacturing company expanded to 15 countries after ISO 9001 certification",
-    benefits: [
-      "Quality Management Recognition",
-      "Global Market Access",
-      "Customer Confidence",
-      "Competitive Advantage",
-      "Process Efficiency",
-      "Risk Reduction",
-    ],
-    process: ["Gap Assessment", "Documentation", "Audit", "Certification"],
-    timeline: "30-45 Days",
-    eligibility: "Registered companies with operational processes",
-  },
-}
+// export default async function ServiceDetailPage({ params }) {
+//   const { slug } = (await params); // ✅ Await the params
+//   // ...
+//   const service = serviceCategories
+//     .flatMap(category => category.services)
+//     .find(item => item.slug === slug)
 
-// 4-step process data
-const steps = [
-  {
-    step: "Step 1",
-    title: "Share Your Requirement",
-    desc: "Tell us about your business and the service you need in a quick call or form.",
-    icon: "📝",
-  },
-  {
-    step: "Step 2",
-    title: "Get Plan & Pricing",
-    desc: "We analyse eligibility, suggest the right scheme/registration and share timelines & fees.",
-    icon: "📊",
-  },
-  {
-    step: "Step 3",
-    title: "Documents & Filing",
-    desc: "Upload documents securely. We prepare drafts, file with authorities and track the status.",
-    icon: "📂",
-  },
-  {
-    step: "Step 4",
-    title: "Approval & Support",
-    desc: "Receive certificate/approval and get ongoing support for renewals and compliances.",
-    icon: "✅",
-  },
-]
+//   if (!service) {
+//     notFound()
+//   }
 
-export default function ServicePage({ params }) {
-  const service = serviceData[params.slug]
+//   return (
+//     <div className="min-h-screen bg-white">
+//       <section className="py-16 bg-gradient-to-br from-[#191b47] to-[#8e1822] text-white">
+//         <div className="max-w-5xl mx-auto px-6">
+//           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+//             {service.title}
+//           </h1>
+//           <p className="text-lg opacity-90">
+//             {service.description}
+//           </p>
+//         </div>
+//       </section>
+
+//       <section className="py-16">
+//         <div className="max-w-5xl mx-auto px-6 space-y-12">
+//           <div>
+//             <h2 className="text-2xl font-bold mb-4">Overview</h2>
+//             <p className="text-slate-700">{service.overview}</p>
+//           </div>
+
+//           <div>
+//             <h2 className="text-2xl font-bold mb-4">Key Highlights</h2>
+//             <ul className="grid sm:grid-cols-2 gap-3">
+//               {service.highlights.map((item, i) => (
+//                 <li key={i} className="p-3 bg-slate-50 border rounded-lg">
+//                   ✅ {item}
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           <div>
+//             <h2 className="text-2xl font-bold mb-4">Our Process</h2>
+//             <ol className="space-y-3">
+//               {service.process.map((step, i) => (
+//                 <li key={i} className="flex gap-3">
+//                   <span className="font-bold text-[#8e1822]">
+//                     {i + 1}.
+//                   </span>
+//                   {step}
+//                 </li>
+//               ))}
+//             </ol>
+//           </div>
+
+//           <div>
+//             <h2 className="text-2xl font-bold mb-4">Benefits</h2>
+//             <ul className="list-disc pl-6 space-y-2">
+//               {service.benefits.map((b, i) => (
+//                 <li key={i}>{b}</li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           {service.story && (
+//             <div className="p-6 bg-orange-50 border-l-4 border-[#8e1822] rounded-lg">
+//               ✨ {service.story}
+//             </div>
+//           )}
+//         </div>
+//       </section>
+//     </div>
+//   )
+// }
+
+import React from 'react';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { serviceCategories } from '@/app/data/serviceData'; // Ensure this path points to your data file
+import { 
+  CheckCircle, 
+  ArrowRight, 
+  Star, 
+  Zap, 
+  TrendingUp, 
+  ChevronRight, 
+  Home,
+  X
+} from 'lucide-react';
+
+export default async function ServiceDetailPage({ params }) {
+  const { slug } = await params;
+
+  // Find the service flatly from all categories
+  const service = serviceCategories
+    .flatMap(category => category.services)
+    .find(item => item.slug === slug);
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white">
-        {/* Back Button */}
-        <div className="bg-slate-50 border-b border-slate-200">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <Link
-              href="/services"
-              className="flex items-center gap-2 text-[#8e1822] font-semibold hover:gap-3 transition-all"
-            >
-              <ArrowLeft size={20} />
-              Back to Services
-            </Link>
+    notFound();
+  }
+
+  return (
+    <div className="min-h-screen bg-white font-sans animate-fade-in">
+      
+      {/* Hero Section */}
+      {/* <section className="relative py-20 lg:py-28 bg-[#191b47] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#191b47] via-[#2a2d65] to-[#8e1822] opacity-90"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-white opacity-5 skew-x-12 translate-x-20"></div>
+        <div className="absolute bottom-0 left-10 w-64 h-64 bg-[#8e1822] blur-[120px] opacity-40"></div>
+
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <Link href="/services" className="inline-flex items-center text-white/70 hover:text-white mb-8 transition-colors text-sm font-medium group">
+            <span className="p-1 rounded-full bg-white/10 group-hover:bg-white/20 mr-2 transition-colors">
+                <ChevronRight className="w-4 h-4 rotate-180" />
+            </span>
+            Back to All Services
+          </Link>
+          
+          <div className="grid md:grid-cols-3 gap-12 items-center">
+            <div className="md:col-span-2">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">
+                    {service.title}
+                </h1>
+                <p className="text-lg sm:text-xl text-slate-200 max-w-2xl leading-relaxed border-l-4 border-[#8e1822] pl-6 py-1">
+                    {service.description}
+                </p>
+            </div>
+            <div className="hidden md:block">
+                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
+                    <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-[#191b47]/20"></div>
+                </div>
+            </div>
           </div>
         </div>
+      </section>
+       */}
+       <section className="relative py-10 lg:py-12 min-h-[360px] lg:min-h-[400px] bg-[#191b47] text-white overflow-hidden">
+  {/* Decorative Background */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#191b47] via-[#2a2d65] to-[#8e1822] opacity-90"></div>
+  <div className="absolute top-0 right-0 w-1/4 h-full bg-white opacity-5 skew-x-12 translate-x-24"></div>
+  <div className="absolute bottom-0 left-10 w-48 h-48 bg-[#8e1822] blur-[120px] opacity-30"></div>
 
-        <section className="py-16 sm:py-24 lg:py-32">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {/* ------- BIGGER “How We Complete Your Service” ------- */}
-            <div className="mb-12">
-              <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[#8e1822] bg-orange-50 px-5 py-1.5 rounded-full mb-4">
-                Simple 4-Step Journey
-                <span className="inline-block h-[1px] w-6 bg-[#8e1800]" />
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                How We <span className="text-[#8e1822]">Complete Your Service</span>
+  <div className="max-w-6xl mx-auto px-6 relative z-10">
+    {/* Back Link */}
+    <Link
+      href="/services"
+      className="inline-flex items-center text-white/70 hover:text-white mb-5 transition-colors text-sm font-medium group"
+    >
+      <span className="p-1 rounded-full bg-white/10 group-hover:bg-white/20 mr-2 transition-colors">
+        <ChevronRight className="w-4 h-4 rotate-180" />
+      </span>
+      Back to All Services
+    </Link>
+
+    {/* Content Grid */}
+    <div className="grid md:grid-cols-3 gap-8 items-center">
+      {/* Text Content */}
+      <div className="md:col-span-2">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 tracking-tight leading-snug">
+          {service.title}
+        </h1>
+
+        <p className="text-sm sm:text-base text-slate-200 max-w-xl leading-relaxed border-l-4 border-[#8e1822] pl-4 py-0.5">
+          {service.description}
+        </p>
+      </div>
+
+      {/* Hero Image */}
+      <div className="hidden md:block">
+        <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-white/10 relative group">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-[#191b47]/10"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      {/* Main Content */}
+      <section className="py-16 lg:py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          {/* Left Content Column */}
+          <div className="lg:col-span-8 space-y-16">
+            
+            {/* Overview */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                <Home className="text-[#8e1822] w-6 h-6" />
+                Overview
               </h2>
-              <p className="text-base md:text-lg text-slate-600 max-w-xl mx-auto">
-                Every registration, funding or certification with Growthera follows this smooth, guided process.
+              <p className="text-slate-600 leading-8 text-lg">
+                {service.overview}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-7 mb-14">
-              {steps.map((item, index) => (
-                <Link key={index} href="/contact" className="block h-full">
-                  <article className="relative h-full p-8 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#8e1822] transition-all duration-300 overflow-hidden text-left transform hover:-translate-y-1 hover:scale-[1.01]">
-                    <div className="flex items-start justify-between mb-5">
-                      <div>
-                        <span className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.18em] px-3 py-1 rounded-full bg-orange-50 text-[#8e1822]">
-                          {item.step}
-                        </span>
-                        <h3 className="mt-3 text-lg md:text-xl font-semibold text-[#191b47]">
-                          {item.title}
-                        </h3>
-                      </div>
-                      <span className="text-4xl md:text-5xl ml-3">
-                        {item.icon}
-                      </span>
-                    </div>
-
-                    <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                      {item.desc}
-                    </p>
-
-                    <div className="mt-6 flex items-center justify-between text-xs text-slate-500">
-                      <span className="flex items-center gap-1">
-                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#8e1822]" />
-                        Click to start this step
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-[#8e1822]">
-                        Continue
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </article>
-                </Link>
-              ))}
-            </div>
-            {/* ------- END BIGGER SECTION ------- */}
-
-            {/* Quick Links */}
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8 mb-8 border border-[#B36267]">
-              <h3 className="text-xl font-bold text-slate-900 mb-6">Need Help Choosing?</h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="inline-block px-6 py-3 bg-[#8e1822] text-white font-bold rounded-lg hover:bg-[#8e1822] transition-all transform hover:scale-105"
-                >
-                  Book Free Consultation
-                </Link>
-                <a
-                  href="tel:+919810924009"
-                  className="inline-block px-6 py-3 border-2 border-[#8e1822] text-[#8e1820] font-bold rounded-lg hover:bg-orange-50 transition-all"
-                >
-                  Call Us: +91 9810924009
-                </a>
-              </div>
-            </div>
-
-            {/* Why Choose Us */}
+            {/* Highlights */}
             <div>
-              <h3 className="text-lg font-bold text-slate-900 mb-6">Why Choose Growthera Ventures?</h3>
-              <div className="grid sm:grid-cols-3 gap-4">
-                {[
-                  { icon: "✓", text: "100% Compliance Guaranteed" },
-                  { icon: "⚡", text: "Fast Turnaround (7-15 Days)" },
-                  { icon: "👥", text: "500+ Satisfied Clients" },
-                ].map((item, i) => (
-                  <div key={i} className="flex flex-col items-center gap-2">
-                    <span className="text-3xl font-bold text-[#8e1822]">{item.icon}</span>
-                    <p className="text-sm font-semibold text-[#B36267]">{item.text}</p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-6 px-2">Key Highlights</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {service.highlights.map((item, i) => (
+                  <div 
+                    key={i} 
+                    className="p-5 bg-white border border-slate-200 rounded-xl flex items-start gap-4 hover:shadow-md hover:border-[#8e1822]/30 transition-all duration-300 group"
+                  >
+                    <div className="mt-1 min-w-[24px] text-[#191b47] group-hover:text-[#8e1822] transition-colors">
+                      <CheckCircle size={24} />
+                    </div>
+                    <span className="text-slate-700 font-medium">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-    )
-  }
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Back Button */}
-      <div className="bg-slate-50 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link
-            href="/services"
-            className="flex items-center gap-2 text-[#8e1822] font-semibold hover:gap-3 transition-all"
-          >
-            <ArrowLeft size={20} />
-            Back to Services
-          </Link>
-        </div>
-      </div>
+            {/* Process */}
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-8 px-2">Our Process</h2>
+              <div className="relative space-y-8 pl-8 before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-0.5 before:bg-slate-200">
+                {service.process.map((step, i) => {
+                   // Some process steps might just be a string, or split by colon.
+                   const isComplex = step.includes(':');
+                   const title = isComplex ? step.split(':')[0] : step;
+                   const desc = isComplex ? step.split(':')[1] : '';
 
-      {/* Hero */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 to-[#8e1822] text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">{service.title}</h1>
-          <p className="text-xl text-orange-50 mb-8">{service.description}</p>
-
-          <div className="bg-white/10 backdrop-blur rounded-xl p-6 sm:p-8 border border-white/20">
-            <p className="text-lg italic text-orange-100">💡 {service.story}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Image */}
-      <section className="py-8 sm:py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <img src={service.image || "/placeholder.svg"} alt={service.title} className="w-full rounded-xl shadow-lg" />
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-6 rounded-xl border border-slate-200 hover:border-[#8e1822] transition-all">
-              <h3 className="font-bold text-[#8e1822] mb-2">Timeline</h3>
-              <p className="text-2xl font-bold text-slate-900">{service.timeline}</p>
+                  return (
+                    <div key={i} className="relative">
+                      <div className="absolute -left-[37px] top-1 w-6 h-6 rounded-full bg-[#8e1822] border-4 border-slate-50 text-white flex items-center justify-center text-xs font-bold z-10 shadow-sm">
+                        {i + 1}
+                      </div>
+                      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <h3 className="font-bold text-lg text-slate-900">{title}</h3>
+                        {desc && <p className="text-slate-600 mt-2 text-sm">{desc}</p>}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="bg-white p-6 rounded-xl border border-slate-200 hover:border-[#8e1822] transition-all">
-              <h3 className="font-bold text-[#8e1822] mb-2">Eligibility</h3>
-              <p className="text-sm text-slate-700">{service.eligibility}</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-slate-200 hover:border-[#8e1822] transition-all">
-              <h3 className="font-bold text-[#8e1822] mb-2">Steps</h3>
-              <p className="text-2xl font-bold text-[#191b47]">{service.process.length} Steps</p>
-            </div>
+
+            {/* Success Story */}
+            {service.story && (
+              <div className="bg-gradient-to-r from-[#191b47] to-[#2a2d65] rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#8e1822] rounded-full blur-[80px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+                 <div className="relative z-10">
+                    {/* <div className="flex items-center gap-2 text-[#8e1822] mb-4 font-bold uppercase tracking-wider text-xs bg-white/10 inline-block px-3 py-1 rounded-full">
+                        <Star size={12} fill="currentColor" /> Success Story
+                    </div> */}
+                    <blockquote className="text-xl md:text-2xl font-medium leading-relaxed italic opacity-95">
+                      "{service.story}"
+                    </blockquote>
+                    <div className="mt-6 flex items-center gap-3">
+                        <div className="w-10 h-1 bg-[#8e1822] rounded-full"></div>
+                        <span className="text-sm text-slate-300 font-medium">Real Results</span>
+                    </div>
+                 </div>
+              </div>
+            )}
           </div>
 
-          {/* Benefits */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-[#19147] mb-6">Key Benefits</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {service.benefits.map((benefit, i) => (
-                <div
-                  key={i}
-                  className="flex gap-3 p-4 bg-white rounded-lg border border-slate-200 hover:border-[#8e1822] transition-all"
-                >
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-[191b47]">{benefit}</span>
+          {/* Right Sidebar */}
+          <div className="lg:col-span-4 space-y-8">
+             {/* Sticky Wrapper */}
+            <div className="sticky top-24 space-y-8">
+              
+              {/* Benefits Card */}
+              <div className="bg-white rounded-2xl shadow-lg border-t-4 border-[#8e1822] p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <Zap className="text-[#8e1822]" size={20} />
+                    Why Choose This?
+                </h3>
+                <ul className="space-y-4">
+                  {service.benefits.map((b, i) => (
+                    <li key={i} className="flex gap-3 items-start text-sm text-slate-600">
+                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#8e1822] flex-shrink-0"></div>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Call to Action */}
+              <div className="bg-[#191b47] rounded-2xl p-6 text-center text-white shadow-xl relative overflow-hidden">
+                <div className="absolute inset-0 bg-white opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <div className="relative z-10">
+                    <h3 className="font-bold text-xl mb-2">Ready to Grow?</h3>
+                    <p className="text-slate-300 text-sm mb-6">Let our experts help you navigate your journey to success.</p>
+                   <Link href="/contact" className="block">
+  <button className="w-full py-3.5 bg-[#8e1822] hover:bg-red-700 text-white rounded-lg font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#8e1822]/30">
+    Book Free Consultation
+  </button>
+</Link>
+                    <p className="mt-4 text-xs text-slate-400">No commitment required.</p>
                 </div>
-              ))}
+              </div>
+
             </div>
           </div>
 
-          {/* Process */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Process</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {service.process.map((step, i) => (
-                <div key={i} className="relative">
-                  <div className="bg-gradient-to-br from-[#8e1822] to-[#8e1800] text-white rounded-xl p-6 text-center">
-                    <div className="text-3xl font-bold mb-2">{i + 1}</div>
-                    <p className="font-semibold">{step}</p>
-                  </div>
-                  {i < service.process.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-[#8e1822]" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#8e1822] to-[#b34048] text-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-lg mb-8 text-orange-50">Book a free consultation with our experts today</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 bg-white text-[#8e1822] font-bold rounded-lg hover:bg-orange-50 transition-all transform hover:scale-105"
-            >
-              Book Consultation
-            </Link>
-            <a
-              href="tel:+919810924009"
-              className="inline-block px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all"
-            >
-              Call Now
-            </a>
-          </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
