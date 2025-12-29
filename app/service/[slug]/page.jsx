@@ -1,86 +1,8 @@
-// import { serviceCategories } from "@/app/data/serviceData"
-// import { notFound } from "next/navigation"
-
-// export default async function ServiceDetailPage({ params }) {
-//   const { slug } = (await params); // ✅ Await the params
-//   // ...
-//   const service = serviceCategories
-//     .flatMap(category => category.services)
-//     .find(item => item.slug === slug)
-
-//   if (!service) {
-//     notFound()
-//   }
-
-//   return (
-//     <div className="min-h-screen bg-white">
-//       <section className="py-16 bg-gradient-to-br from-[#191b47] to-[#8e1822] text-white">
-//         <div className="max-w-5xl mx-auto px-6">
-//           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-//             {service.title}
-//           </h1>
-//           <p className="text-lg opacity-90">
-//             {service.description}
-//           </p>
-//         </div>
-//       </section>
-
-//       <section className="py-16">
-//         <div className="max-w-5xl mx-auto px-6 space-y-12">
-//           <div>
-//             <h2 className="text-2xl font-bold mb-4">Overview</h2>
-//             <p className="text-slate-700">{service.overview}</p>
-//           </div>
-
-//           <div>
-//             <h2 className="text-2xl font-bold mb-4">Key Highlights</h2>
-//             <ul className="grid sm:grid-cols-2 gap-3">
-//               {service.highlights.map((item, i) => (
-//                 <li key={i} className="p-3 bg-slate-50 border rounded-lg">
-//                   ✅ {item}
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           <div>
-//             <h2 className="text-2xl font-bold mb-4">Our Process</h2>
-//             <ol className="space-y-3">
-//               {service.process.map((step, i) => (
-//                 <li key={i} className="flex gap-3">
-//                   <span className="font-bold text-[#8e1822]">
-//                     {i + 1}.
-//                   </span>
-//                   {step}
-//                 </li>
-//               ))}
-//             </ol>
-//           </div>
-
-//           <div>
-//             <h2 className="text-2xl font-bold mb-4">Benefits</h2>
-//             <ul className="list-disc pl-6 space-y-2">
-//               {service.benefits.map((b, i) => (
-//                 <li key={i}>{b}</li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {service.story && (
-//             <div className="p-6 bg-orange-50 border-l-4 border-[#8e1822] rounded-lg">
-//               ✨ {service.story}
-//             </div>
-//           )}
-//         </div>
-//       </section>
-//     </div>
-//   )
-// }
 
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { serviceCategories } from '@/app/data/serviceData'; // Ensure this path points to your data file
+import { serviceCategories } from '@/app/data/serviceData'; 
 import { 
   CheckCircle, 
   ArrowRight, 
@@ -108,42 +30,7 @@ export default async function ServiceDetailPage({ params }) {
     <div className="min-h-screen bg-white font-sans animate-fade-in">
       
       {/* Hero Section */}
-      {/* <section className="relative py-20 lg:py-28 bg-[#191b47] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#191b47] via-[#2a2d65] to-[#8e1822] opacity-90"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-white opacity-5 skew-x-12 translate-x-20"></div>
-        <div className="absolute bottom-0 left-10 w-64 h-64 bg-[#8e1822] blur-[120px] opacity-40"></div>
-
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <Link href="/services" className="inline-flex items-center text-white/70 hover:text-white mb-8 transition-colors text-sm font-medium group">
-            <span className="p-1 rounded-full bg-white/10 group-hover:bg-white/20 mr-2 transition-colors">
-                <ChevronRight className="w-4 h-4 rotate-180" />
-            </span>
-            Back to All Services
-          </Link>
-          
-          <div className="grid md:grid-cols-3 gap-12 items-center">
-            <div className="md:col-span-2">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">
-                    {service.title}
-                </h1>
-                <p className="text-lg sm:text-xl text-slate-200 max-w-2xl leading-relaxed border-l-4 border-[#8e1822] pl-6 py-1">
-                    {service.description}
-                </p>
-            </div>
-            <div className="hidden md:block">
-                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
-                    <img 
-                        src={service.image} 
-                        alt={service.title} 
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-[#191b47]/20"></div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </section>
-       */}
+      
        <section className="relative py-10 lg:py-12 min-h-[360px] lg:min-h-[400px] bg-[#191b47] text-white overflow-hidden">
   {/* Decorative Background */}
   <div className="absolute inset-0 bg-gradient-to-br from-[#191b47] via-[#2a2d65] to-[#8e1822] opacity-90"></div>

@@ -1,87 +1,7 @@
-// export const serviceCategories = [
-//   {
-//     id: "funding",
-//     name: "Funding & Finance",
-//     description:
-//       "End-to-end funding solutions across government, private, and institutional channels",
-//     services: [
-//       {
-//         id: 1,
-//         title: "Government Sector Loans",
-//         slug: "government-sector-loans",
-//         shortDescription:
-//           "Access government-backed secured and collateral-free loans",
-//         description:
-//           "We help MSMEs and startups secure government-backed loans under PMEGP, MUDRA, MSME, and state subsidy schemes with end-to-end assistance.",
-//         image: "/bank_nbfc_loans.png",
-
-//         highlights: [
-//           "PMEGP subsidy support",
-//           "Collateral-free options",
-//           "State & central schemes",
-//           "End-to-end documentation",
-//         ],
-
-//         process: [
-//           "Eligibility check",
-//           "Document preparation",
-//           "Bank & government submission",
-//           "Loan sanction & disbursement",
-//         ],
-
-//         benefits: [
-//           "Low interest rates",
-//           "Government subsidy",
-//           "Faster approvals",
-//           "Minimal risk",
-//         ],
-
-//         story:
-//           "Manufacturing MSME secured ₹75L loan under PMEGP & state subsidy support",
-//       },
-
-//       {
-//         id: 2,
-//         title: "Venture Capital Funding",
-//         slug: "venture-capital-funding",
-//         shortDescription:
-//           "Raise capital from angels and VC firms",
-//         description:
-//           "We help startups prepare pitch decks, financial models, and connect with verified angel investors and VC firms.",
-//         image: "/venture_capital.png",
-
-//         highlights: [
-//           "Investor-ready pitch deck",
-//           "Financial modeling",
-//           "Angel & VC access",
-//           "Negotiation support",
-//         ],
-
-//         process: [
-//           "Business assessment",
-//           "Pitch & financials",
-//           "Investor outreach",
-//           "Term sheet closure",
-//         ],
-
-//         benefits: [
-//           "High growth capital",
-//           "Mentorship access",
-//           "Market credibility",
-//         ],
-
-//         story:
-//           "Tech startup raised ₹12 Cr Series A funding from leading VC firm",
-//       },
-//     ],
-//   },
-// ]
-
 
 export const serviceCategories = [
-  /* =========================
-     FUNDING & FINANCE
-  ========================= */
+  /* 
+     FUNDING & FINANCE */
   {
     id: "funding",
     name: "Funding & Finance",
@@ -212,9 +132,7 @@ export const serviceCategories = [
     ],
   },
 
-  /* =========================
-     BUSINESS REGISTRATION
-  ========================= */
+  /* BUSINESS REGISTRATION */
   {
     id: "registration",
     name: "Business Registration",
@@ -362,9 +280,7 @@ export const serviceCategories = [
     ],
   },
 
-  /* =========================
-     CERTIFICATIONS & IP
-  ========================= */
+  /* CERTIFICATIONS & IP */
   {
     id: "certifications",
     name: "Certifications & IP",
@@ -482,9 +398,7 @@ export const serviceCategories = [
     ],
   },
 
-  /* =========================
-     TAX & COMPLIANCE
-  ========================= */
+  /* TAX & COMPLIANCE */
   {
     id: "compliance",
     name: "Tax & Compliance",
@@ -595,9 +509,7 @@ export const serviceCategories = [
     ],
   },
 
-  /* =========================
-     DIGITAL GROWTH
-  ========================= */
+  /* DIGITAL GROWTH */
   {
     id: "digital",
     name: "Digital Growth",

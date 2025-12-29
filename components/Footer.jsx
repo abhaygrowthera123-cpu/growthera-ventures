@@ -23,9 +23,7 @@ export default function Footer() {
 
 
       {/* 🔹 Main Footer Content */}
-      {/* ### CHANGE ###: Increased vertical padding (py-24 instead of py-20) and added horizontal padding on large screens (lg:px-12) */}
       <div className="max-w-7xl mx-auto px-6 py-24 lg:px-12">
-        {/* ### CHANGE ###: Reduced gap between columns (gap-y-12 gap-x-8 instead of just default grid gap) */}
         <div className="grid md:grid-cols-5 gap-y-12 gap-x-8 mb-16">
           {/* Logo + About */}
           <div className="md:col-span-2">

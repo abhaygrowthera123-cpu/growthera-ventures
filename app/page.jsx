@@ -18,6 +18,27 @@ const services = [
     story: "SaaS StartUp secured $2M seed funding after certification",
     slug: "startup-certification",
   },
+
+    {
+  id: 3,
+        title: "Grants & Subsidies",
+        slug: "grants-and-subsidies",
+        description:
+          "Non-dilutive funding through central and state government grants",
+        image: "/subsidies.jpg",
+        story:
+          "Startup received ₹50L innovation grant without equity dilution",
+},
+{
+   id: 5,
+        title: "Proprietorship Registration",
+        slug: "proprietorship-registration",
+        description:
+          "Quick and cost-effective business registration for individuals",
+        image: "/propritorship.jpg",
+        story:
+          "Local business formalized operations and opened bank account in 7 days",
+},
   // {
   //   id: 2,
   //   title: "Pitch Deck Creation",
@@ -26,6 +47,7 @@ const services = [
   //   story: "Tech company impressed 50+ investors with our deck design",
   //   slug: "pitch-deck",
   // },
+
   // {
   //   id: 3,
   //   title: "MSME Registration",
