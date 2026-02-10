@@ -4,10 +4,12 @@ import ServiceCard from "@/components/ServiceCard";
 import Carousel from "@/components/Carousel";
 import Counter from "@/components/Counter";
 import SuccessStories from "@/components/SuccessStories";
-
+// import ChannelPartners from "@/components/ChannePartners";
 import { HeroSection } from "@/components/home/hero-section";
 
 import AnnouncementBanner from "@/components/AnnouncementBanner";
+import TrustedPartners from "../components/TrustedPartners";
+import Testimonials from "@/components/Testimonials";
 
 const services = [
   {
@@ -224,6 +226,9 @@ export default function Home() {
 </section>
 
 
+ <TrustedPartners/>
+
+
       {/* Growth Metrics */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,8 +277,10 @@ export default function Home() {
         </div>
       </section>
 
+      
+
       {/* Services Highlight */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
+      {/* <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-in fade-in slide-in-from-top-4">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 text-balance">
@@ -308,7 +315,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Funding Schemes Carousel */}
       <section className="py-12 sm:py-16 lg:py-20">
@@ -355,7 +362,9 @@ export default function Home() {
 
       {/* Success Stories Carousel */}
 
-      <SuccessStories/>
+      {/* <SuccessStories/> */}
+
+      <Testimonials />
 
 
       {/* <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">

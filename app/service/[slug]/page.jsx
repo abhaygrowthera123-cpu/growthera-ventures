@@ -1,23 +1,235 @@
 
+// import React from 'react';
+// import Link from 'next/link';
+// import { notFound } from 'next/navigation';
+// import { serviceCategories } from '@/app/data/serviceData'; 
+// import { 
+//   CheckCircle, 
+//   ArrowRight, 
+//   Star, 
+//   Zap, 
+//   TrendingUp, 
+//   ChevronRight,
+
+//   Home,
+//   X
+// } from 'lucide-react';
+
+// export default async function ServiceDetailPage({ params }) {
+//   const { slug } = await params;
+
+//   // Find the service flatly from all categories
+//   const service = serviceCategories
+//     .flatMap(category => category.services)
+//     .find(item => item.slug === slug);
+
+//   if (!service) {
+//     notFound();
+//   }
+
+//   return (
+//     <div className="min-h-screen bg-white font-sans animate-fade-in">
+      
+//       {/* Hero Section */}
+      
+//        <section className="relative py-10 lg:py-12 min-h-[360px] lg:min-h-[400px] bg-[#191b47] text-white overflow-hidden">
+//   {/* Decorative Background */}
+//   <div className="absolute inset-0 bg-gradient-to-br from-[#191b47] via-[#2a2d65] to-[#8e1822] opacity-90"></div>
+//   <div className="absolute top-0 right-0 w-1/4 h-full bg-white opacity-5 skew-x-12 translate-x-24"></div>
+//   <div className="absolute bottom-0 left-10 w-48 h-48 bg-[#8e1822] blur-[120px] opacity-30"></div>
+
+//   <div className="max-w-6xl mx-auto px-6 relative z-10">
+//     {/* Back Link */}
+//     <Link
+//       href="/services"
+//       className="inline-flex items-center text-white/70 hover:text-white mb-5 transition-colors text-sm font-medium group"
+//     >
+//       <span className="p-1 rounded-full bg-white/10 group-hover:bg-white/20 mr-2 transition-colors">
+//         <ChevronRight className="w-4 h-4 rotate-180" />
+//       </span>
+//       Back to All Services
+//     </Link>
+
+//     {/* Content Grid */}
+//     <div className="grid md:grid-cols-3 gap-8 items-center">
+//       {/* Text Content */}
+//       <div className="md:col-span-2">
+//         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 tracking-tight leading-snug">
+//           {service.title}
+//         </h1>
+
+//         <p className="text-sm sm:text-base text-slate-200 max-w-xl leading-relaxed border-l-4 border-[#8e1822] pl-4 py-0.5">
+//           {service.description}
+//         </p>
+//       </div>
+
+//       {/* Hero Image */}
+//       <div className="hidden md:block">
+//         <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-white/10 relative group">
+//           <img
+//             src={service.image}
+//             alt={service.title}
+//             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+//           />
+//           <div className="absolute inset-0 bg-[#191b47]/10"></div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </section>
+
+
+//       {/* Main Content */}
+//       <section className="py-16 lg:py-24 bg-slate-50">
+//         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+//           {/* Left Content Column */}
+//           <div className="lg:col-span-8 space-y-16">
+            
+//             {/* Overview */}
+//             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+//               <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+//                 <Home className="text-[#8e1822] w-6 h-6" />
+//                 Overview
+//               </h2>
+//               <p className="text-slate-600 leading-8 text-lg">
+//                 {service.overview}
+//               </p>
+//             </div>
+
+//             {/* Highlights */}
+//             <div>
+//               <h2 className="text-2xl font-bold text-slate-900 mb-6 px-2">Key Highlights</h2>
+//               <div className="grid sm:grid-cols-2 gap-4">
+//                 {service.highlights.map((item, i) => (
+//                   <div 
+//                     key={i} 
+//                     className="p-5 bg-white border border-slate-200 rounded-xl flex items-start gap-4 hover:shadow-md hover:border-[#8e1822]/30 transition-all duration-300 group"
+//                   >
+//                     <div className="mt-1 min-w-[24px] text-[#191b47] group-hover:text-[#8e1822] transition-colors">
+//                       <CheckCircle size={24} />
+//                     </div>
+//                     <span className="text-slate-700 font-medium">{item}</span>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+
+//             {/* Process */}
+//             <div>
+//               <h2 className="text-2xl font-bold text-slate-900 mb-8 px-2">Our Process</h2>
+//               <div className="relative space-y-8 pl-8 before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-0.5 before:bg-slate-200">
+//                 {service.process.map((step, i) => {
+//                    // Some process steps might just be a string, or split by colon.
+//                    const isComplex = step.includes(':');
+//                    const title = isComplex ? step.split(':')[0] : step;
+//                    const desc = isComplex ? step.split(':')[1] : '';
+
+//                   return (
+//                     <div key={i} className="relative">
+//                       <div className="absolute -left-[37px] top-1 w-6 h-6 rounded-full bg-[#8e1822] border-4 border-slate-50 text-white flex items-center justify-center text-xs font-bold z-10 shadow-sm">
+//                         {i + 1}
+//                       </div>
+//                       <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+//                         <h3 className="font-bold text-lg text-slate-900">{title}</h3>
+//                         {desc && <p className="text-slate-600 mt-2 text-sm">{desc}</p>}
+//                       </div>
+//                     </div>
+//                   );
+//                 })}
+//               </div>
+//             </div>
+
+//             {/* Success Story */}
+//             {service.story && (
+//               <div className="bg-gradient-to-r from-[#191b47] to-[#2a2d65] rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
+//                  <div className="absolute top-0 right-0 w-64 h-64 bg-[#8e1822] rounded-full blur-[80px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+//                  <div className="relative z-10">
+//                     {/* <div className="flex items-center gap-2 text-[#8e1822] mb-4 font-bold uppercase tracking-wider text-xs bg-white/10 inline-block px-3 py-1 rounded-full">
+//                         <Star size={12} fill="currentColor" /> Success Story
+//                     </div> */}
+//                     <blockquote className="text-xl md:text-2xl font-medium leading-relaxed italic opacity-95">
+//                       "{service.story}"
+//                     </blockquote>
+//                     <div className="mt-6 flex items-center gap-3">
+//                         <div className="w-10 h-1 bg-[#8e1822] rounded-full"></div>
+//                         <span className="text-sm text-slate-300 font-medium">Real Results</span>
+//                     </div>
+//                  </div>
+//               </div>
+//             )}
+//           </div>
+
+//           {/* Right Sidebar */}
+//           <div className="lg:col-span-4 space-y-8">
+//              {/* Sticky Wrapper */}
+//             <div className="sticky top-24 space-y-8">
+              
+//               {/* Benefits Card */}
+//               <div className="bg-white rounded-2xl shadow-lg border-t-4 border-[#8e1822] p-6">
+//                 <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+//                     <Zap className="text-[#8e1822]" size={20} />
+//                     Why Choose This?
+//                 </h3>
+//                 <ul className="space-y-4">
+//                   {service.benefits.map((b, i) => (
+//                     <li key={i} className="flex gap-3 items-start text-sm text-slate-600">
+//                       <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#8e1822] flex-shrink-0"></div>
+//                       {b}
+//                     </li>
+//                   ))}
+//                 </ul>
+//               </div>
+
+//               {/* Call to Action */}
+//               <div className="bg-[#191b47] rounded-2xl p-6 text-center text-white shadow-xl relative overflow-hidden">
+//                 <div className="absolute inset-0 bg-white opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+//                 <div className="relative z-10">
+//                     <h3 className="font-bold text-xl mb-2">Ready to Grow?</h3>
+//                     <p className="text-slate-300 text-sm mb-6">Let our experts help you navigate your journey to success.</p>
+//                    <Link href="/contact" className="block">
+//   <button className="w-full py-3.5 bg-[#8e1822] hover:bg-red-700 text-white rounded-lg font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#8e1822]/30">
+//     Book Free Consultation
+//   </button>
+// </Link>
+//                     <p className="mt-4 text-xs text-slate-400">No commitment required.</p>
+//                 </div>
+//               </div>
+
+//             </div>
+//           </div>
+
+//         </div>
+//       </section>
+//     </div>
+//   );
+// }
+
+
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { serviceCategories } from '@/app/data/serviceData'; 
-import { 
-  CheckCircle, 
-  ArrowRight, 
-  Star, 
-  Zap, 
-  TrendingUp, 
-  ChevronRight, 
+import { serviceCategories } from '@/app/data/serviceData';
+import {
+  CheckCircle,
+  Zap,
+  ChevronRight,
   Home,
-  X
 } from 'lucide-react';
 
-export default async function ServiceDetailPage({ params }) {
-  const { slug } = await params;
+/* ✅ REQUIRED FOR STATIC EXPORT */
+export async function generateStaticParams() {
+  return serviceCategories
+    .flatMap(category => category.services)
+    .map(service => ({
+      slug: service.slug,
+    }));
+}
 
-  // Find the service flatly from all categories
+/* ✅ MUST BE ASYNC IN NEXT 16 */
+export default async function ServiceDetailPage({ params }) {
+  const { slug } = await params; // ✅ REQUIRED
+
   const service = serviceCategories
     .flatMap(category => category.services)
     .find(item => item.slug === slug);
@@ -27,172 +239,80 @@ export default async function ServiceDetailPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans animate-fade-in">
-      
-      {/* Hero Section */}
-      
-       <section className="relative py-10 lg:py-12 min-h-[360px] lg:min-h-[400px] bg-[#191b47] text-white overflow-hidden">
-  {/* Decorative Background */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#191b47] via-[#2a2d65] to-[#8e1822] opacity-90"></div>
-  <div className="absolute top-0 right-0 w-1/4 h-full bg-white opacity-5 skew-x-12 translate-x-24"></div>
-  <div className="absolute bottom-0 left-10 w-48 h-48 bg-[#8e1822] blur-[120px] opacity-30"></div>
+    <div className="min-h-screen bg-white font-sans">
 
-  <div className="max-w-6xl mx-auto px-6 relative z-10">
-    {/* Back Link */}
-    <Link
-      href="/services"
-      className="inline-flex items-center text-white/70 hover:text-white mb-5 transition-colors text-sm font-medium group"
-    >
-      <span className="p-1 rounded-full bg-white/10 group-hover:bg-white/20 mr-2 transition-colors">
-        <ChevronRight className="w-4 h-4 rotate-180" />
-      </span>
-      Back to All Services
-    </Link>
+      {/* HERO */}
+      <section className="relative py-10 bg-[#191b47] text-white">
+        <div className="max-w-6xl mx-auto px-6">
 
-    {/* Content Grid */}
-    <div className="grid md:grid-cols-3 gap-8 items-center">
-      {/* Text Content */}
-      <div className="md:col-span-2">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 tracking-tight leading-snug">
-          {service.title}
-        </h1>
+          <Link
+            href="/services"
+            className="inline-flex items-center text-white/70 hover:text-white mb-4 text-sm"
+          >
+            <ChevronRight className="rotate-180 mr-2 w-4 h-4" />
+            Back to All Services
+          </Link>
 
-        <p className="text-sm sm:text-base text-slate-200 max-w-xl leading-relaxed border-l-4 border-[#8e1822] pl-4 py-0.5">
-          {service.description}
-        </p>
-      </div>
+          <h1 className="text-4xl font-bold mb-3">
+            {service.title}
+          </h1>
 
-      {/* Hero Image */}
-      <div className="hidden md:block">
-        <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-white/10 relative group">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-[#191b47]/10"></div>
+          <p className="max-w-xl border-l-4 border-[#8e1822] pl-4 text-slate-200">
+            {service.description}
+          </p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
+      {/* CONTENT */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12">
 
-      {/* Main Content */}
-      <section className="py-16 lg:py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
-          {/* Left Content Column */}
-          <div className="lg:col-span-8 space-y-16">
-            
-            {/* Overview */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                <Home className="text-[#8e1822] w-6 h-6" />
-                Overview
+          <div className="lg:col-span-8 space-y-10">
+            <div className="bg-white p-8 rounded-xl">
+              <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                <Home className="text-[#8e1822]" /> Overview
               </h2>
-              <p className="text-slate-600 leading-8 text-lg">
+              <p className="text-slate-600">
                 {service.overview}
               </p>
             </div>
 
-            {/* Highlights */}
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-6 px-2">Key Highlights</h2>
+              <h2 className="text-2xl font-bold mb-6">
+                Key Highlights
+              </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {service.highlights.map((item, i) => (
-                  <div 
-                    key={i} 
-                    className="p-5 bg-white border border-slate-200 rounded-xl flex items-start gap-4 hover:shadow-md hover:border-[#8e1822]/30 transition-all duration-300 group"
-                  >
-                    <div className="mt-1 min-w-[24px] text-[#191b47] group-hover:text-[#8e1822] transition-colors">
-                      <CheckCircle size={24} />
-                    </div>
-                    <span className="text-slate-700 font-medium">{item}</span>
+                  <div key={i} className="bg-white p-4 rounded-lg flex gap-3">
+                    <CheckCircle className="text-[#191b47]" />
+                    {item}
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Process */}
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-8 px-2">Our Process</h2>
-              <div className="relative space-y-8 pl-8 before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-0.5 before:bg-slate-200">
-                {service.process.map((step, i) => {
-                   // Some process steps might just be a string, or split by colon.
-                   const isComplex = step.includes(':');
-                   const title = isComplex ? step.split(':')[0] : step;
-                   const desc = isComplex ? step.split(':')[1] : '';
-
-                  return (
-                    <div key={i} className="relative">
-                      <div className="absolute -left-[37px] top-1 w-6 h-6 rounded-full bg-[#8e1822] border-4 border-slate-50 text-white flex items-center justify-center text-xs font-bold z-10 shadow-sm">
-                        {i + 1}
-                      </div>
-                      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 className="font-bold text-lg text-slate-900">{title}</h3>
-                        {desc && <p className="text-slate-600 mt-2 text-sm">{desc}</p>}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Success Story */}
-            {service.story && (
-              <div className="bg-gradient-to-r from-[#191b47] to-[#2a2d65] rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#8e1822] rounded-full blur-[80px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-                 <div className="relative z-10">
-                    {/* <div className="flex items-center gap-2 text-[#8e1822] mb-4 font-bold uppercase tracking-wider text-xs bg-white/10 inline-block px-3 py-1 rounded-full">
-                        <Star size={12} fill="currentColor" /> Success Story
-                    </div> */}
-                    <blockquote className="text-xl md:text-2xl font-medium leading-relaxed italic opacity-95">
-                      "{service.story}"
-                    </blockquote>
-                    <div className="mt-6 flex items-center gap-3">
-                        <div className="w-10 h-1 bg-[#8e1822] rounded-full"></div>
-                        <span className="text-sm text-slate-300 font-medium">Real Results</span>
-                    </div>
-                 </div>
-              </div>
-            )}
           </div>
 
-          {/* Right Sidebar */}
-          <div className="lg:col-span-4 space-y-8">
-             {/* Sticky Wrapper */}
-            <div className="sticky top-24 space-y-8">
-              
-              {/* Benefits Card */}
-              <div className="bg-white rounded-2xl shadow-lg border-t-4 border-[#8e1822] p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                    <Zap className="text-[#8e1822]" size={20} />
-                    Why Choose This?
+          <div className="lg:col-span-4">
+            <div className="sticky top-24 space-y-6">
+
+              <div className="bg-white p-6 rounded-xl border-t-4 border-[#8e1822]">
+                <h3 className="font-bold mb-4 flex items-center gap-2">
+                  <Zap className="text-[#8e1822]" /> Why Choose This?
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2 text-sm text-slate-600">
                   {service.benefits.map((b, i) => (
-                    <li key={i} className="flex gap-3 items-start text-sm text-slate-600">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#8e1822] flex-shrink-0"></div>
-                      {b}
-                    </li>
+                    <li key={i}>• {b}</li>
                   ))}
                 </ul>
               </div>
 
-              {/* Call to Action */}
-              <div className="bg-[#191b47] rounded-2xl p-6 text-center text-white shadow-xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-white opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                <div className="relative z-10">
-                    <h3 className="font-bold text-xl mb-2">Ready to Grow?</h3>
-                    <p className="text-slate-300 text-sm mb-6">Let our experts help you navigate your journey to success.</p>
-                   <Link href="/contact" className="block">
-  <button className="w-full py-3.5 bg-[#8e1822] hover:bg-red-700 text-white rounded-lg font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#8e1822]/30">
-    Book Free Consultation
-  </button>
-</Link>
-                    <p className="mt-4 text-xs text-slate-400">No commitment required.</p>
-                </div>
+              <div className="bg-[#191b47] p-6 rounded-xl text-white text-center">
+                <h3 className="font-bold mb-2">Ready to Grow?</h3>
+                <Link href="/contact">
+                  <button className="w-full py-3 bg-[#8e1822] rounded-lg font-bold">
+                    Book Free Consultation
+                  </button>
+                </Link>
               </div>
 
             </div>
