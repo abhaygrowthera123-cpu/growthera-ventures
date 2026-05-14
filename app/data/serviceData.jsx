@@ -1,7 +1,4 @@
-
 export const serviceCategories = [
-  /* 
-     FUNDING & FINANCE */
   {
     id: "funding",
     name: "Funding & Finance",
@@ -132,7 +129,6 @@ export const serviceCategories = [
     ],
   },
 
-  /* BUSINESS REGISTRATION */
   {
     id: "registration",
     name: "Business Registration",
@@ -280,7 +276,6 @@ export const serviceCategories = [
     ],
   },
 
-  /* CERTIFICATIONS & IP */
   {
     id: "certifications",
     name: "Certifications & IP",
@@ -398,7 +393,6 @@ export const serviceCategories = [
     ],
   },
 
-  /* TAX & COMPLIANCE */
   {
     id: "compliance",
     name: "Tax & Compliance",
@@ -509,7 +503,6 @@ export const serviceCategories = [
     ],
   },
 
-  /* DIGITAL GROWTH */
   {
     id: "digital",
     name: "Digital Growth",

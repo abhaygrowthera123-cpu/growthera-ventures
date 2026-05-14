@@ -1,0 +1,62 @@
+CONTACT FORM + GOOGLE SHEET — SETUP CHECKLIST
+============================================
+
+A) WHAT IS ALREADY DONE IN CODE
+--------------------------------
+- Contact modal and /contact page POST to /api/contact (see lib/submitContact.js).
+- app/api/contact/route.js saves to Google Sheet (if env set) and/or sends email (if SMTP set).
+- At least ONE of: (Google webhook URL + secret) OR (SMTP_HOST + SMTP_USER + SMTP_PASS) must be set or you get HTTP 503.
+- scripts/google-sheet-contact-webhook.gs contains the Apps Script to paste in Google.
+
+B) WHAT IS NOT DONE BY SHARING THE SHEET LINK ONLY
+----------------------------------------------------
+1) Google Apps Script must be created, pasted, given WEBHOOK_SECRET property, and DEPLOYED as a Web app.
+2) Your hosting (Vercel / Netlify / etc.) must have GOOGLE_SHEET_WEBHOOK_URL and GOOGLE_SHEET_WEBHOOK_SECRET.
+3) The live site must run full Next.js so POST /api/contact exists (not static export only). If you see 404 on /api/contact in the browser Network tab, fix deployment first.
+
+C) GOOGLE SHEETS + APPS SCRIPT — STEP BY STEP
+---------------------------------------------
+1. Open your spreadsheet "Website Leads Form".
+2. Menu: Extensions → Apps Script.
+3. Delete any default code in Code.gs. Paste the full contents of:
+   scripts/google-sheet-contact-webhook.gs (from this project).
+4. Click the gear (Project Settings) → Script properties → Add row:
+   Property: WEBHOOK_SECRET
+   Value: a long random password (e.g. 32+ characters). Save it — you will paste the SAME value into hosting as GOOGLE_SHEET_WEBHOOK_SECRET.
+5. Click Deploy → New deployment → Select type: Web app.
+   - Execute as: Me
+   - Who has access: Anyone
+   Click Deploy. Authorize when Google asks.
+6. Copy the Web app URL (ends with /exec). That is GOOGLE_SHEET_WEBHOOK_URL.
+
+D) SHEET TAB NAME AND HEADERS
+-----------------------------
+- The script expects a tab named exactly: Sheet1
+  If you renamed the tab, open google-sheet-contact-webhook.gs and change SHEET_NAME to match.
+- Row 1 headers are fine; appendRow adds a NEW row below existing data (DateTime is set automatically in column A).
+
+E) HOSTING (EXAMPLE: VERCEL)
+----------------------------
+1. Project → Settings → Environment Variables.
+2. Add:
+   GOOGLE_SHEET_WEBHOOK_URL = (paste Web app URL from step C6)
+   GOOGLE_SHEET_WEBHOOK_SECRET = (same string as Script property WEBHOOK_SECRET)
+3. Optional — email as well:
+   SMTP_HOST, SMTP_USER, SMTP_PASS
+4. Redeploy the project after saving variables.
+
+F) LOCAL TEST (OPTIONAL)
+------------------------
+Create .env.local in the project root with the same variables. Run: npm run dev
+Submit the form; a new row should appear in the sheet.
+
+G) TROUBLESHOOTING
+------------------
+- 404 on POST .../api/contact: site is static or wrong host; deploy as Next.js app.
+- 503 "not configured": missing both sheet env pair and SMTP.
+- 500 "Failed to save": wrong secret, wrong URL, tab not named Sheet1, or Apps Script error — open Apps Script → Executions to see errors.
+- 401/unauthorized in response: WEBHOOK_SECRET in Google does not match GOOGLE_SHEET_WEBHOOK_SECRET on the server.
+
+H) NETFLIFY NOTE
+----------------
+If you use Netlify, netlify.toml in this repo uses @netlify/plugin-nextjs — set the same env vars in Netlify UI.

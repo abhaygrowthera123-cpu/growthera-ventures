@@ -56,14 +56,14 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-4">6. Your Rights</h2>
             <p className="text-slate-700">
               You have the right to access, correct, or delete your personal information. To exercise these rights,
-              please contact us at support@growtheraventures.in.
+              please contact us at support@growtheraventures.com.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4">7. Contact Us</h2>
             <p className="text-slate-700">
-              If you have questions about our Privacy Policy, please contact us at support@growtheraventures.in or call
+              If you have questions about our Privacy Policy, please contact us at support@growtheraventures.com or call
               +91 9810924009.
             </p>
           </section>

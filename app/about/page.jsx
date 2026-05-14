@@ -26,31 +26,16 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero  old redis background */}
-      {/* <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 to-orange-700 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">About Growthera Ventures</h1>
-          <p className="text-xl text-orange-50">Enabling entrepreneurs. Empowering growth.</p>
-        </div>
-      </section> */}
-
-
-        {/*  New Background */}
       <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#191b47] via-[#2d2f5a] to-[#8e1822] text-white">
-        {/* Background Layers */}
         <div className="absolute inset-0 -z-10">
-          {/* Radial glow lights */}
           <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(249,115,22,0.5),_transparent_60%)]"></div>
 
-          {/* Glow blobs */}
           <div className="absolute -top-16 left-0 w-64 h-64 bg-[#963339] rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-400/45 rounded-full blur-3xl"></div>
 
-          {/* Diagonal texture overlay */}
           <div className="absolute inset-0 opacity-15 bg-[linear-gradient(135deg,_rgba(148,163,184,0.5)_1px,_transparent_1px)] bg-[length:26px_26px]"></div>
         </div>
 
-        {/* Content */}
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
             About Growthera Ventures
@@ -61,7 +46,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
@@ -81,13 +65,12 @@ export default function AboutPage() {
               </p>
             </div>
             <img
-              src="who_we_are.jpg"
+              src="/who_we_are.jpg"
               alt="Our Team"
-              className="rounded-xl shadow-lg"
+              className="rounded-xl shadow-lg transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl"
             />
           </div>
 
-          {/* Vision & Mission */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="p-8 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 border-l-4 border-orange-600">
               <h3 className="text-2xl font-bold text-[#191b47] mb-4">
@@ -102,14 +85,13 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-[#191b47] mb-4">
                 Our Mission
               </h3>
-              <p className="text-lg text-[#191b47">
+              <p className="text-lg text-[#191b47]">
                 To accelerate business growth through reliable consulting, fast
                 execution, and expert-led guidance.
               </p>
             </div>
           </div>
 
-          {/* Values */}
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#191b47] mb-8 text-center">
               Our Values
@@ -135,7 +117,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Achievements */}
       <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#191b47] mb-12 text-center">
@@ -161,33 +142,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Leadership */}
-      {/* <section className="py-12 sm:py-16 lg:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-8 text-center">
-            Leadership
-          </h2>
-          <div className="bg-gradient-to-br from-slate-50 to-orange-50 p-8 rounded-xl border border-slate-200">
-            <img
-              src="/placeholder.svg?height=200&width=200"
-              alt="Founder"
-              className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-orange-600"
-            />
-            <h3 className="text-2xl font-bold text-slate-900 text-center mb-2">
-              Abhay
-            </h3>
-            <p className="text-orange-600 font-bold text-center mb-4">
-              Founder & CEO
-            </p>
-            <p className="text-lg text-slate-700 text-center">
-              With 5+ years of experience in business consulting, funding
-              strategy, and startup mentorship, Abhay has helped 500+ businesses
-              achieve their growth goals.
-            </p>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }

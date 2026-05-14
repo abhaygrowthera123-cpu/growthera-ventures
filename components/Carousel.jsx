@@ -53,7 +53,6 @@ export default function Carousel({ items }) {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
       <button
         onClick={prev}
         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#8e1822] hover:bg-[#8e1822] p-3 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg ml-2 sm:ml-0"
@@ -69,7 +68,6 @@ export default function Carousel({ items }) {
         <ChevronRight size={28} className="text-white" />
       </button>
 
-      {/* Indicators */}
       <div className="flex justify-center gap-2 mt-8">
         {Array.from({ length: items.length - 2 }).map((_, i) => (
           <button

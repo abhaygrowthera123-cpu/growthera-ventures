@@ -18,14 +18,8 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-slate-950 to-black text-white text-[15px] leading-relaxed">
       
-
-      
-
-
-      {/* 🔹 Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-24 lg:px-12">
         <div className="grid md:grid-cols-5 gap-y-12 gap-x-8 mb-16">
-          {/* Logo + About */}
           <div className="md:col-span-2">
             <div className="mb-5">
               <Image
@@ -50,7 +44,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-[15px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
               Quick Links
@@ -60,7 +53,7 @@ export default function Footer() {
                 { name: "Home", href: "/" },
                 { name: "Services", href: "/services" },
                 { name: "About Us", href: "/about" },
-                { name: "Sector", href: "/sector" },
+                { name: "Sectors", href: "/sectors" },
                 { name: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={`${link.name}-${link.href}`}>
@@ -75,7 +68,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
             <h4 className="text-[15px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
               Legal
@@ -97,8 +89,6 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
-          {/* Contact Info */}
 
               <div>
             <h4 className="text-[15px] uppercase font-semibold tracking-widest text-slate-400 mb-4">
@@ -132,10 +122,8 @@ export default function Footer() {
           </div>
 
         </div>
-          {/* Disclaimer Card */}
-<div className="w-full flex justify-center mt-16 px-4">  {/* Increased top margin */}
-  <div className="bg-slate-800/40 border border-slate-700 rounded-xl 
-                  p-6 md:p-8 max-w-4xl shadow-lg w-full">  {/* Increased width */}
+<div className="w-full flex justify-center mt-16 px-4">
+  <div className="bg-slate-800/40 border border-slate-700 rounded-xl p-6 md:p-8 max-w-4xl shadow-lg w-full">
 
     <h3 className="text-center text-[#daabae] font-semibold text-lg mb-3 tracking-wide">
       Important Disclaimer
@@ -154,13 +142,11 @@ export default function Footer() {
   </div>
 </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-400 text-[14px] text-center">
             © {currentYear} Growthera Ventures Pvt. Ltd. — All Rights Reserved.
           </p>
 
-          {/* Social Icons */}
           <div className="flex gap-4">
             {[
               {

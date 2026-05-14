@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { submitContactForm } from "@/lib/submitContact"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -13,86 +14,46 @@ export default function ContactPage() {
   })
 
   const [submitted, setSubmitted] = useState(false)
+  const [errorMsg, setErrorMsg] = useState("")
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   // Here you would typically send the form data to a backend
-  //   console.log("Form submitted:", formData)
-  //   setSubmitted(true)
-  //   setTimeout(() => {
-  //     setFormData({ name: "", email: "", phone: "", service: "", message: "" })
-  //     setSubmitted(false)
-  //   }, 3000)
-  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setErrorMsg("")
 
-    const handleSubmit = async (e) => {
-  e.preventDefault()
+    try {
+      await submitContactForm(formData)
+      setSubmitted(true)
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      })
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-
-    if (!res.ok) {
-      throw new Error("Failed to submit form")
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+    } catch (error) {
+      setErrorMsg(error.message || "Could not send your message. Please try again.")
     }
-
-    // Optional: you can read the response JSON
-    // const data = await res.json()
-
-    setSubmitted(true)
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-    })
-
-    setTimeout(() => {
-      setSubmitted(false)
-    }, 3000)
-  } catch (error) {
-    console.error("Error submitting form:", error)
-    alert("There was an error sending your message. Please try again.")
   }
-}
-
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      {/* <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 to-orange-700 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Get In Touch</h1>
-          <p className="text-xl text-orange-50">Have questions? Our experts are ready to help</p>
-        </div>
-      </section> */}
-
       <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#191b47] via-[#2d2f5a] to-[#8e1822] text-white">
-
-  {/* Background Effects */}
   <div className="absolute inset-0 -z-10">
-
-    {/* Radial highlight blend */}
     <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(249,115,22,0.5),_transparent_60%)]"></div>
-
-    {/* Glow blobs */}
     <div className="absolute -top-20 left-10 w-64 h-64 bg-[#b36267] rounded-full blur-3xl"></div>
     <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400/45 rounded-full blur-3xl"></div>
-
-    {/* Pattern overlay */}
     <div className="absolute inset-0 opacity-15 bg-[linear-gradient(135deg,_rgba(148,163,184,0.5)_1px,_transparent_1px)] bg-[length:26px_26px]"></div>
   </div>
 
-  {/* Text Content */}
   <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
       Get In Touch
@@ -103,8 +64,6 @@ export default function ContactPage() {
   </div>
 </section>
 
-
-      {/* Contact Info */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -119,7 +78,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="mailto:support@growtheraventures.in"
+              href="mailto:support@growtheraventures.com"
               className="p-8 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border-l-4 border-blue-600 hover:shadow-lg transition-all"
             >
               <Mail className="w-8 h-8 text-[#191b47] mb-4" />
@@ -128,14 +87,13 @@ export default function ContactPage() {
               <p className="text-sm text-slate-600 mt-2">We'll respond within 24 hours</p>
             </a>
 
-            <div className="p-8 rounded-xl bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-600">
+            <div className="p-8 rounded-xl bg-gradient-to-br from-green-50 to-green-100 border-l-4 border-green-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <MapPin className="w-8 h-8 text-green-600 mb-4" />
               <h3 className="font-bold text-lg text-[#191b47] mb-2">Office</h3>
               <p className="text-slate-700 text-sm">H-28 ARV Park G-03, Sector 63, Noida 201301</p>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="grid md:grid-cols-2 gap-12">
             <form onSubmit={handleSubmit} className="space-y-6">
               <h2 className="text-3xl font-bold text-[#191b47] mb-8">Send us a Message</h2>
@@ -191,7 +149,6 @@ export default function ContactPage() {
                   <option value="">Select Service</option>
                   <option value="New Company Registration">New Company Registration</option>
                   <option value="Certification">Certification</option>
-                  {/* <option value="Tax Exemption">Tax Exemption</option> */}
                   <option value="CGTMSE Loan">CGTMSE Loan</option>
                   <option value="Seed Support Scheme">Seed Support Scheme</option>
                   <option value="PMEGP">PMEGP</option>
@@ -223,6 +180,12 @@ export default function ContactPage() {
                 Send Message
               </button>
 
+              {errorMsg && (
+                <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-center text-sm">
+                  {errorMsg}
+                </div>
+              )}
+
               {submitted && (
                 <div className="p-4 bg-green-100 border border-green-500 text-green-700 rounded-lg text-center font-semibold animate-pulse">
                   Thank you! We'll be in touch soon.
@@ -230,10 +193,8 @@ export default function ContactPage() {
               )}
             </form>
 
-
-            {/* Image */}
             <div className="hidden md:block">
-              <img src="send_us.jpg" alt="Contact" className="rounded-xl shadow-lg" />
+              <img src="/send_us.jpg" alt="Contact" className="rounded-xl shadow-lg transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl" />
             </div>
           </div>
         </div>

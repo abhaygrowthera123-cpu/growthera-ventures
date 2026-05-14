@@ -4,9 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import ServiceCard from "@/components/ServiceCard"
-// import { serviceCategories } from "../data/serviceData"
 import { serviceCategories } from "@/app/data/serviceData"
-
 
 export default function ServicesPage() {
   const [active, setActive] = useState(serviceCategories[0].id)
@@ -14,7 +12,6 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* HERO */}
       <section className="relative overflow-hidden py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#2d2f5a] via-[#191b47] to-[#8e1822] text-white">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.35),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(249,115,22,0.5),_transparent_60%)]" />
@@ -32,7 +29,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CATEGORY TABS */}
       <section className="py-8 bg-slate-50 sticky top-20 z-40">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
@@ -53,7 +49,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* SERVICES GRID */}
       <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4">
           {serviceCategories.map(category => (
@@ -86,7 +81,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-12 sm:py-16 bg-gradient-to-r from-[#191b47] via-[#2d2f5a] to-[#276F85] text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">

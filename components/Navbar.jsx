@@ -38,27 +38,6 @@ export default function Navbar() {
               : "w-full bg-white shadow-md border-b border-slate-200"
           }`}
         >
-          {/* Logo
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">G</span>
-            </div>
-            <span className="hidden sm:inline font-bold text-lg text-slate-900">Growthera</span>
-          </Link> */}
-
-          {/* Logo */}
-          {/* <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <Image
-              src="/logo.png" // put your file inside /public folder
-              alt="Growthera Logo"
-              width={175} // adjust size as needed
-              height={40}
-              className="object-contain"
-              priority
-            />
-          </Link> */}
-
-
 
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
   <Image
@@ -66,13 +45,12 @@ export default function Navbar() {
     alt="Growthera Logo"
     width={175}
     height={40}
-    className="object-contain h-12 w-auto" // controls size
+    className="object-contain h-12 w-auto"
     priority
   />
 </Link>
 
 
-          {/* Desktop nav links */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -85,7 +63,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTAs */}
           <div className="hidden md:flex items-center space-x-3">
             <a
               href="tel:+919810924009"
@@ -102,7 +79,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
@@ -112,7 +88,6 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden px-0 pb-2 animate-in fade-in slide-in-from-top-2">
           <div className="mx-auto bg-white border border-slate-200 shadow-md rounded-xl px-3">
