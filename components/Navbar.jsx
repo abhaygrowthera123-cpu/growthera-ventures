@@ -13,6 +13,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Sectors", href: "/sectors" },
+    { label: "ERP", href: "/erp" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];

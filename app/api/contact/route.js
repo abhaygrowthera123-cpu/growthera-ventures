@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer"
 import { NextResponse } from "next/server"
 import { appendLeadToGoogleSheet } from "@/lib/appendLeadToGoogleSheet"
+import { createLeadRecord } from "@/lib/erp/leadEngine"
 
 function smtpConfigured() {
   return (
@@ -42,6 +43,22 @@ export async function POST(request) {
     if (!name || !email || !phone) {
       return NextResponse.json(
         { success: false, error: "Name, email, and phone are required." },
+        { status: 400 }
+      )
+    }
+
+    const crmLead = createLeadRecord({
+      name,
+      email,
+      phone,
+      service,
+      message,
+      source: "Website forms",
+    })
+
+    if (!crmLead.ok) {
+      return NextResponse.json(
+        { success: false, error: crmLead.errors.join(" ") },
         { status: 400 }
       )
     }
@@ -91,7 +108,15 @@ ${message || "(none)"}
       })
     }
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({
+      success: true,
+      lead: {
+        id: crmLead.lead.id,
+        assignedDepartment: crmLead.lead.assignedDepartmentName,
+        assignedEmployee: crmLead.lead.assignedEmployeeName,
+        status: crmLead.lead.status,
+      },
+    })
   } catch (err) {
     console.error("Contact form error:", err)
     return NextResponse.json(

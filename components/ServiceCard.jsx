@@ -1,11 +1,10 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 export default function ServiceCard({
-  id,
   title,
   description,
   image,

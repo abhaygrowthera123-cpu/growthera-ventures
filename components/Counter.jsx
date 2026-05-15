@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Counter({ end = 0, duration = 2000 }) {
   const [display, setDisplay] = useState(() => (typeof end === "string" ? end : String(end)));
-  const startRef = useRef(null);
   const rafRef = useRef(null);
 
   useEffect(() => {
