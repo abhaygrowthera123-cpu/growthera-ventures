@@ -9,7 +9,6 @@ import {
   Twitter,
   Facebook,
   Instagram,
-  AlertCircle,
 } from "lucide-react";
 
 export default function Footer() {
